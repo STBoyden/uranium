@@ -1,0 +1,24 @@
+{
+  "project_name": "Uranium",
+  "languages": {
+    "CSS": {
+      "language_servers": [
+        "tailwindcss"
+      ],
+    },
+    "TypeScript": {
+      "language_servers": [
+        "typescript-language-server",
+        "!vtsls"
+      ],
+    },
+  },
+  "auto_install_extensions": {
+    "svelte": true
+  },
+  "file_types": {
+    "JSONC": [
+      ".prettierrc"
+    ],
+  },
+}
