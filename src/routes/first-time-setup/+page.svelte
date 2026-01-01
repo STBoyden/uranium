@@ -5,6 +5,7 @@
   import { CornerDownRight, ListRestart } from "@lucide/svelte";
   import { wait } from "$lib/utils/functions";
   import { goto } from "$app/navigation";
+  import { onDestroy, onMount } from "svelte";
 
   type RequirementKeys = keyof Pick<
     NonNullable<typeof system.requirements>,
@@ -34,6 +35,27 @@
 
   const system = $derived(getSystemContext());
   const disabled = $derived.by(() => !(system.requirements?.all_met ?? false));
+
+  async function update(doWait: boolean = true) {
+    if (doWait) {
+      system.requirements = undefined;
+      await wait(500);
+    }
+
+    await system.refresh();
+  }
+
+  let intervalID: number | undefined = $state(undefined);
+  onMount(() => {
+    intervalID = setInterval(() => update(false), 100);
+  });
+
+  onDestroy(() => {
+    if (intervalID) {
+      console.log(`Cleared interval ID ${intervalID}`);
+      clearInterval(intervalID);
+    }
+  });
 
   $effect(() => {
     if (system.requirements?.all_met) {
@@ -115,10 +137,7 @@
         tabindex={1}
         variant="outline"
         onclick={async () => {
-          system.requirements = undefined;
-          await wait(500);
-
-          system.refresh();
+          await update();
         }}
         class="cursor-pointer"
       >

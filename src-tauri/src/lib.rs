@@ -107,7 +107,7 @@ fn get_requirements() -> Requirements {
             RequirementState::Met
         } else {
             RequirementState::NotMet {
-                message: "Steam is not installed or could not be found.".to_string(),
+                message: "Steam is not installed or could not be found. If you are sure Steam is installed, please make sure that it has been ran at least once.".to_string(),
             }
         },
         get_app_path(&steam_dir, MW3_APP_ID),
