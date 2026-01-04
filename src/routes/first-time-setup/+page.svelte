@@ -71,8 +71,16 @@
     <span class={ok ? "font-normal" : "font-bold"}>
       {#if tag === "steam"}
         {ok ? "Steam installed." : ""}
+      {:else if tag === "architecture"}
+        {ok
+          ? `Operating system architecture is supported.`
+          : `Operating system architecture:`}
+      {:else if tag === "operating_system"}
+        {ok
+          ? "Operating system type is supported."
+          : "Operating system unsupported: "}
       {:else}
-        {ok ? `${key}.` : `${key}:`}
+        {ok ? `${key}` : `${key}: `}
       {/if}
     </span>
 
