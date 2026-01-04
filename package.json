@@ -10,7 +10,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "prepare": "effect-language-service patch && svelte-kit sync",
-    "tauri": "tauri"
+    "tauri": "__NV_DISABLE_EXPLICIT_SYNC=1 tauri"
   },
   "license": "MIT",
   "dependencies": {
