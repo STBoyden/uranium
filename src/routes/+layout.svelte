@@ -45,9 +45,9 @@
 
   {#if loading}
     <div
-      class="prose w-full h-full align-middle items-center justify-center content-center"
+      class="prose dark:prose-invert w-full h-full align-middle items-center justify-center content-center"
     >
-      <h1 class="mx-auto w-full text-center">Loading...</h1>
+      <h3>Loading...</h3>
     </div>
   {:else}
     <div class="p-4 h-full w-full">
