@@ -23,6 +23,7 @@
     "type-fest": "^5.3.1"
   },
   "devDependencies": {
+    "@effect/language-service": "^0.64.1",
     "@lucide/svelte": "^0.562.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.49.2",
