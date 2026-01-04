@@ -92,7 +92,7 @@ fn get_requirements() -> Requirements {
     let steam_dir = SteamDir::locate().ok();
 
     Requirements::new(
-        if os_info.os_type() == Type::Linux {
+        if os_name == "Linux" {
             RequirementState::Met
         } else {
             RequirementState::NotMet { message: format!("The current operating system ({os_name}) is not supported - <u>Linux is required</u>. If you're using Windows, please use the <a tabindex=\"9999\" target=\"_blank\" href=\"https://plutonium.pw/\">Plutonium Launcher</a> instead.") }
